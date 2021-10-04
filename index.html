@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh;}
-        canvas {border: 1px solid blue}
+        body {margin: 0; display: flex; justify-content: center; height: 100vh;}
+        canvas {border: 1px solid blue; display: none;}
+        
     </style>
 </head>
 <body>
-    
     <div>
         <h1>spacebar only</h1>
+        <form id="form">
+            당신의 이름<input type="text" id="input"> <button id="ok">확인</button>
+        </form>
         <canvas id="canvas"></canvas>
     </div>
     <script src="main.js"></script>

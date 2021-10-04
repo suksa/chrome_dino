@@ -1,6 +1,7 @@
 var canvas = document.getElementById('canvas')
 var ctx = canvas.getContext('2d')
 
+var userName = ''
 var timer = 0
 var cactusLists = []
 var jumpTimer = 0
@@ -35,7 +36,7 @@ class Cactus {
 
 class End {
     constructor() {
-        this.m1 = '당신은 우끼끼 티어'
+        this.m1 = '당신은 우끼끼 티어 🙊'
         this.m2 = '당신은 애니멀 티어'
         this.m3 = '당신은 킹 티어'
         this.m4 = '당신은 갓 티어'
@@ -53,8 +54,8 @@ class End {
     }
 }
 
-function re() {
-    animation = requestAnimationFrame(re)
+function game() {
+    animation = requestAnimationFrame(game)
     timer++
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -97,8 +98,6 @@ function re() {
     dino.draw()
 }
 
-re()
-
 function crash(dino, cactus) {
     var x = cactus.x - (dino.x + dino.width)
     var y = cactus.y - (dino.y + dino.height)
@@ -109,7 +108,6 @@ function crash(dino, cactus) {
     }
 }
 
-
 var jumping = false
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
@@ -117,4 +115,13 @@ document.addEventListener('keydown', (e) => {
             jumping = true
         }
     }
+})
+
+// 
+document.getElementById('form').addEventListener('submit', (e) => {
+    e.preventDefault()
+    userName = document.getElementById('userName')
+    canvas.style.display = 'block'
+    e.target.style.display = 'none'
+    game()
 })
